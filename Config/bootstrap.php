@@ -15,3 +15,18 @@ if (!Configure::read('Persona.scriptUrl')) {
 if (!Configure::read('Persona.endpointUrl')) {
 	Configure::write('Persona.endpointUrl', 'https://verifier.login.persona.org/verify');
 }
+
+/**
+ * Bundle of CA Root Certificates from Mozilla for usage with cURL
+ *
+ * @link http://curl.haxx.se/docs/caextract.html
+ */
+if (!Configure::read('Persona.sslCertPath')) {
+	Configure::write('Persona.sslCertPath', false);
+	$vendorPaths = APP::path('Vendor', 'Persona');
+	foreach($vendorPaths as $path) {
+		if (file_exists($path . 'cacert.pem')) {
+			Configure::write('Persona.sslCertPath', $path . 'cacert.pem');
+		}
+	}
+}
