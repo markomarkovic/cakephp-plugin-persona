@@ -33,18 +33,4 @@ class PersonaHelper extends AppHelper {
 		));
 	}
 
-/**
- * JavaScript variable denoting current user
- * @return string JS variable
- */
-	public function currentUser($jsVarName) {
-		$user = $this->Session->read('Persona.identity.email');
-
-		return sprintf(
-			"var %s = %s;",
-			$jsVarName,
-			(strlen($user) > 0) ? "'{$user}'" : "null"
-		);
-	}
-
 }
