@@ -3,7 +3,7 @@ var Persona = (function () {
 	var self = {};
 
 	self.init = function(loginUrl, logoutUrl, currentUser) {
-		self.currentUser = (currentUser === '') ? null: currentUser;
+		self.currentUser = (currentUser === '') ? null : currentUser;
 		self.loginUrl = loginUrl;
 		self.logoutUrl = logoutUrl;
 
