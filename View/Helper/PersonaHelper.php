@@ -4,10 +4,10 @@ App::uses('AppHelper', 'View/Helper');
 class PersonaHelper extends AppHelper {
 
 /**
- * Using HtmlHelper
+ * Used helpers
  * @var array
  */
-	public $helpers = array('Html');
+	public $helpers = array('Html', 'Session');
 
 /**
  * Persona script tag
@@ -26,12 +26,25 @@ class PersonaHelper extends AppHelper {
  * It needs to be included before any scripts.
  * @see https://developer.mozilla.org/en-US/docs/persona/Browser_compatibility#Internet_Explorer_.22Compatibility_Mode.22
  */
-	public function meta()
-	{
+	public function meta() {
 		return $this->Html->meta(null, null, array(
 			'http-equiv' => 'X-UA-Compatible',
 			'content' => 'IE=Edge'
 		));
+	}
+
+/**
+ * JavaScript variable denoting current user
+ * @return string JS variable
+ */
+	public function currentUser($jsVarName) {
+		$user = $this->Session->read('Persona.identity.email');
+
+		return sprintf(
+			"var %s = %s;",
+			$jsVarName,
+			(strlen($user) > 0) ? "'{$user}'" : "null"
+		);
 	}
 
 }
