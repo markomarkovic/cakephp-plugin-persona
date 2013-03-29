@@ -13,6 +13,21 @@
   1. Include the component in the Controller where you're needing it: `public $components = array('Persona.Persona');`
   1. Include the helper in your controllers: `public $helpers = array('Persona.Persona');`
 
+### Using composer
+Ensure `require` is present in `composer.json`. This will install the plugin into `app/Plugin/Persona`:
+
+```
+{
+    "require": {
+        "markomarkovic/cakephp-plugin-persona": "1.0.*"
+    },
+    "extra": {
+        "installer-paths": {
+            "app/Plugin/{$name}/": ["markomarkovic/cakephp-plugin-persona"]
+        }
+    }
+}
+```
 
 ## Usage
   1. Take a look at the `examples/Controller/UsersController.php` and set your own `sign_in` and `sign_out` methods. These are going to be targeted from the front-end using XMLHttpRequest
