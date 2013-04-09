@@ -9,7 +9,7 @@
 ## Installation
 
   1. Clone/Copy the files in this directory into `app/Plugin/Persona`
-  1. Ensure the plugin is loaded in `app/Config/bootstrap.php` by calling `CakePlugin::load('Persona');`
+  1. Ensure the plugin is loaded in `app/Config/bootstrap.php` by calling `CakePlugin::load('Persona', array('bootstrap' => true));`
   1. Include the component in the Controller where you're needing it: `public $components = array('Persona.Persona');`
   1. Include the helper in your controllers: `public $helpers = array('Persona.Persona');`
 
