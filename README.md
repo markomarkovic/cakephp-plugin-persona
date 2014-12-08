@@ -34,8 +34,4 @@ Ensure `require` is present in `composer.json`. This will install the plugin int
   1. Take a look at the `examples/View/Layouts/default.ctp` for example login/logout buttons and JavaScript implementation
 
 
----
-
-If you like it, donate BTC: `19euPkWvVsykjz9kNSTeE5aenjDKikVstM`
-
 [1]: https://developer.mozilla.org/en-US/docs/Persona
